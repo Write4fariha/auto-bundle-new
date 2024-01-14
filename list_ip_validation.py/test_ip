@@ -1,0 +1,28 @@
+ip = input("Enter your IP: ")
+# print(ip)
+# print(type(ip))
+# print("spliting the ip now")
+ip = ip.split('.')
+# print(ip)
+# print(type(ip))
+# print(type(ip[0]))
+# if len(ip) == 4:
+#     for item in ip:
+#         if item.isdigit():
+#             continue
+#         else:
+#             print("List element is NOT digit")
+#             break
+#     print("Valid IP")
+# else:
+#     print("Given ip NOT valid ip")
+if len(ip) == 4:
+    for item in ip:
+        if item.isdigit():
+            continue
+        else:
+            print("List element is NOT digit")
+            break
+    print("Valid IP")
+else:
+    print("Given ip NOT valid ip")

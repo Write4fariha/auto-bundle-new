@@ -1,4 +1,5 @@
-print("version1")
-print("version2")
-print("we have two versions")
-print('code1")
+message='IndiaIsGreat'
+new_message=message.split('Is')
+print(new_message)
+new_message=" IS ".join(new_message)
+print(new_message)
