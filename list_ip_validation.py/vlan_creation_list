@@ -1,7 +1,0 @@
-vlans = [40,50,60,70]
-switches = ["sw1","sw2","sw3","sw4"]
-
-for SW in switches:
-    print("configure vlan in " + SW)
-    for vlan in vlans:
-        print("Vlan"+str(vlan))
