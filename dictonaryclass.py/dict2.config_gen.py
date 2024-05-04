@@ -46,12 +46,13 @@ sw_config_syntax = {
     "intf_mode":"switchport mode {}",
     "vlan_id":"switchport mode access {}"
 }
-# print(sw_config_data)
-# print(sw_config_syntax)
-
-# print(sw_config_syntax ["intf"].format(sw_config_data["intf"]))
+config_commands=[]
 
 for sw_config_data in sw_config_list:
     print(sw_config_data)
-    # for k,v in sw_config_data.items():
-        # print(sw_config_syntax [k].format(v))
+    for k,v in sw_config_data.items():
+         print(sw_config_syntax [k].format(v))
+
+#         config = sw_config_syntax [k].format(v)
+# config_commands = config_commands.append(config)
+# print(type(config_commands))
