@@ -633,20 +633,6 @@ mydata = {
 #     print("found right data")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 print(list(mydata["Metadata"]["AWS::CloudFormation::Interface"]["ParameterLabels"].values())[2]["default"])
 
 
