@@ -13,8 +13,9 @@
 # output=multiplication(5,5)
 # print(output)
 
-def division(L,M):
-    s=L/M
-    return s
-output=division(25,5)
-print(output)
+# def division(L,M):
+#     s=L/M
+#     return s
+# output=division(25,5)
+# print(output)
+
