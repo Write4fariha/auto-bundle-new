@@ -2,7 +2,7 @@
 
 class calc:
     
-    x=50
+    # x=50
     
     def __init__(self, y, z):
         self.y = y
@@ -25,14 +25,21 @@ class calc:
         print("Value of Y in div function",self.y)
     
 class calc_child(calc):
-    pass
+    def sub(self):
+        print(self.y-self.z)
+
+class calc_child_mode(calc_child):
+    def mode(self):
+        print(self.y%self.z)
 
 def main():
-    obj1 = calc_child(20,100)
+    obj1 = calc_child_mode(70,100)
     obj1.add()
     obj1.mul()
     obj1.div()
-    print(obj1.x)
+    # print(obj1.x)
+    obj1.sub()
+    obj1.mode()
 
 if __name__=="__main__":
     main()
