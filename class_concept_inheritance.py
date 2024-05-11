@@ -24,9 +24,11 @@ class calc:
         print("I am in DIV Function")
         print("Value of Y in div function",self.y)
     
-       
+class calc_child(calc):
+    pass
+
 def main():
-    obj1 = calc(20,100)
+    obj1 = calc_child(20,100)
     obj1.add()
     obj1.mul()
     obj1.div()
