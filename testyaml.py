@@ -2,11 +2,10 @@
 import yaml
 
 # CONVERT YAML DATA TO PYTHON DATA
+yamlfile=open("config_data.yaml")
 
-# yamlfile=open("config_data.yaml")
-
-# sw_config_data=yaml.safe_load(yamlfile)
-# # print(sw_config_data)
+sw_config_data=yaml.safe_load(yamlfile)
+# print(sw_config_data)
 
 sw_config_data = {
     "intf":"gig0/1",
