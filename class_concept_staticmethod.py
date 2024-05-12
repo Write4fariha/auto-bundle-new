@@ -10,25 +10,27 @@ class calc:
     
 #defining arg local to add class function
  
-    def add(self,a,b):
+    # def add(self,a,b):
+    #        print("I am in Add Function")
+    #        print("Value of y in add function",self.y)
+    #        print("value of z in add function",self.z)
+    #        print("Value of A in add function",a)
+    #        print("value of B in add function",b)
+    #        print(a+b)
+    
+# Removing self arg since we are not using it in add function and defining static method to avoid error message
+ 
+    @staticmethod 
+
+    def add(a,b):
             print("I am in Add Function")
-            print("Value of y in add function",self.y)
-            print("value of z in add function",self.z)
             print("Value of A in add function",a)
             print("value of B in add function",b)
             print(a+b)
     
-# Removing self arg since we are not using it in add function and defining static method to avoid error message
- 
-    # def add(self,a,b):
-    #         print("I am in Add Function")
-    #         print("Value of A in add function",a)
-    #         print("value of B in add function",b)
-    #         print(a+b)
-    
     def mul(self):
-        print("I am in MUL Function")
-        print("Value of Y in mul function",self.y)
+            print("I am in MUL Function")
+            print("Value of Y in mul function",self.y)
 
 def main():
       
