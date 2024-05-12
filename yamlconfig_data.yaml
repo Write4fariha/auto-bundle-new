@@ -1,0 +1,4 @@
+desc: connected to server
+intf: gig0/1
+intf_mode: access
+vlan_id: '10'
