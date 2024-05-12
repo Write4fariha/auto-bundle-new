@@ -13,7 +13,7 @@ sw_config_data = {
     "vlan_id":"10"
 }
 
-# # CONVERT PYTHON DATA TO YAML DATA
+# # CONVERT PYTHON DATA TO JSON DATA
 jsonlfile=open("jsonconfig_data.json",'w')
 output=json.dump(sw_config_data,jsonlfile)
 
