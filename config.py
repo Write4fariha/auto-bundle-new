@@ -1,20 +1,24 @@
 
 import yaml
-import jinja2
+# import jinja2 --it will import complete jinja2 template
+
+# below is another method to import only required object from jinja2 template
+
+from jinja2 import FileSystemLoader,Environment
 
 file=open("config_data.yml","r")
-config_vlan=yaml.safe_load(file)
-print(config_vlan)
+data=yaml.safe_load(file)
+print(data)
 
 # load jinja2 template from file 
 
-template_loader = jinja2.FileSystemLoader(searchpath=".")
-env = jinja2.Environment(loader=template_loader)
+template_loader = FileSystemLoader(searchpath=".")
+env = Environment(loader=template_loader)
 template = env.get_template("config_jinja.j2")
 
 # Render the template with the data
 
-rendered_output = template.render(config_vlan=config_vlan)
+rendered_output = template.render(config_vlan=data) 
 
 # Pirnt rendered output
 print(rendered_output)
