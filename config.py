@@ -6,9 +6,10 @@ import yaml
 
 from jinja2 import FileSystemLoader,Environment
 
+# load yaml file into data and convert it into python format
 file=open("config_data.yml","r")
 data=yaml.safe_load(file)
-print(data)
+# print(data)
 
 # load jinja2 template from file 
 

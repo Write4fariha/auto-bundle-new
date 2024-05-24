@@ -1,6 +1,15 @@
+{#
+
 vlan {{ config_vlan["vlans"][0]["vlan_id"]}} 
 vlan {{ config_vlan["vlans"][0]["vlan_name"]}} 
 vlan {{ config_vlan["vlans"][1]["vlan_id"]}} 
 vlan {{ config_vlan["vlans"][1]["vlan_name"]}} 
 vlan {{ config_vlan["vlans"][2]["vlan_id"]}} 
 vlan {{ config_vlan["vlans"][2]["vlan_name"]}} 
+
+#}
+
+{%- for item in config_vlan -%}
+vlan {{ item["vlan_id"] }}
+ name {{ item["vlan_name"] }}
+{% endfor %}
