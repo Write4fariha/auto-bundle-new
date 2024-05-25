@@ -1,9 +1,9 @@
-vlan 10
- name HR
+vlan 40
+ name HR1
  !
-vlan 20
- name sales
+vlan 50
+ name sales1
  !
-vlan 30
- name marketing
+vlan 60
+ name marketing1
  !
