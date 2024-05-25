@@ -36,28 +36,36 @@ config_list=config_file.readlines()
 # print(config_list)
 
 
-
 # Device information
-device = {
+devices = [{
     'device_type': 'cisco_ios',
     'host': '192.168.64.5',  # IP address of the device
     'username': 'netg',    # Username
     'password': 'netg',  # Prompt for password securely
     # 'secret': getpass('Enter enable secret: '),      # Prompt for enable secret securely, if needed
-}
+},
+{
+    'device_type': 'cisco_ios',
+    'host': '192.168.64.6',  # IP address of the device
+    'username': 'netg',    # Username
+    'password': 'netg',  # Prompt for password securely
+    # 'secret': getpass('Enter enable secret: '),      # Prompt for enable secret securely, if needed
+}]
 
+for device in devices:
+    
 # Connect to the device
-net_connect = ConnectHandler(**device)
-print("Connected to the device.")
+ net_connect = ConnectHandler(**device)
+ print("Connected to the device.")
 
 # Example command: display the running configuration
 # output = net_connect.send_command("show running config")
 # output = net_connect.send_command("show vlan")
-output = net_connect.send_config_set(config_list) #data from config_list is sent to cisco SW
-output = net_connect.send_config_from_file("config_gen.data") #instead of reading from file (config_list) we are directly passing the file name 
-print("Configuration PUSH")
-print(output)
+ output = net_connect.send_config_set(config_list) #data from config_list is sent to cisco SW
+ output = net_connect.send_config_from_file("config_gen.data") #instead of reading from file (config_list) we are directly passing the file name 
+ print("Configuration PUSH")
+ print(output)
 
 # Disconnect from the device
-net_connect.disconnect()
-print("Disconnect the device.")
+ net_connect.disconnect()
+ print("Disconnect the device.")
