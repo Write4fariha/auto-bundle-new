@@ -3,36 +3,36 @@ import yaml
 from netmiko import ConnectHandler
 # # import jinja2 --it will import complete jinja2 template
 
-# # below is another method to import only required object from jinja2 template
-# from jinja2 import FileSystemLoader,Environment
+# below is another method to import only required object from jinja2 template
+from jinja2 import FileSystemLoader,Environment
 
-# # load yaml file into data and convert it into python format
-# file=open("config_data.yml","r")
-# data=yaml.safe_load(file)
-# # print(data)
+# load yaml file into data and convert it into python format
+file=open("config_data.yml","r")
+data=yaml.safe_load(file)
+# print(data)
 
-# # load jinja2 template from file 
+# load jinja2 template from file 
 
-# template_loader = FileSystemLoader(searchpath=".")
-# env = Environment(loader=template_loader)
-# template = env.get_template("config_jinja.j2")
+template_loader = FileSystemLoader(searchpath=".")
+env = Environment(loader=template_loader)
+template = env.get_template("config_jinja.j2")
 
-# # Render the template with the data
+# Render the template with the data
 
-# rendered_output = template.render(config_vlan=data) 
+rendered_output = template.render(config_vlan=data) 
 
-# # Pirnt rendered output
-# # print(rendered_output)
+# Pirnt rendered output
+# print(rendered_output)
 
-# # opening new file and writting rendered output value in it. It will create new file and dislay the output on it.
-# config_file=open("config_gen.data","w")
-# config_file.write(rendered_output)
-# config_file.close()
+# opening new file and writting rendered output value in it. It will create new file and dislay the output on it.
+config_file=open("config_gen.data","w")
+config_file.write(rendered_output)
+config_file.close()
 
 
-# # it will open existing file created above and read all lines from that file and print the output 
-# config_file=open("config_gen.data","r")
-# config_list=config_file.readlines()
+# it will open existing file created above and read all lines from that file and print the output 
+config_file=open("config_gen.data","r")
+config_list=config_file.readlines()
 # print(config_list)
 
 
@@ -46,14 +46,17 @@ device = {
     # 'secret': getpass('Enter enable secret: '),      # Prompt for enable secret securely, if needed
 }
 
-
 # Connect to the device
 net_connect = ConnectHandler(**device)
 print("Connected to the device.")
 
 # Example command: display the running configuration
-output = net_connect.send_command("show running config")
-print("Running Config")
+# output = net_connect.send_command("show running config")
+# output = net_connect.send_command("show vlan")
+output = net_connect.send_config_set(config_list) #data from config_list is sent to cisco SW
+output = net_connect.send_config_from_file("config_gen.data") #instead of reading from file (config_list) we are directly passing the file name 
+print("Configuration PUSH")
+print(output)
 
 # Disconnect from the device
 net_connect.disconnect()
