@@ -61,13 +61,14 @@ devices = [{
     'password': 'india',  # Prompt for password securely
     # 'secret': getpass('Enter enable secret: '),      # Prompt for enable secret securely, if needed
 },
-{
-    'device_type': 'cisco_ios',
-    'host': '192.168.64.152',  # IP address of the device
-    'username': 'netg',    # Username
-    'password': 'india',  # Prompt for password securely
-    # 'secret': getpass('Enter enable secret: '),      # Prompt for enable secret securely, if needed
-}]
+# {
+#     'device_type': 'cisco_ios',
+#     'host': '192.168.64.152',  # IP address of the device
+#     'username': 'netg',    # Username
+#     'password': 'india',  # Prompt for password securely
+#     # 'secret': getpass('Enter enable secret: '),      # Prompt for enable secret securely, if needed
+# }
+]
 
 # Connect to multiple devices
 
