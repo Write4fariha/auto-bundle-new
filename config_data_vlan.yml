@@ -1,4 +1,4 @@
-
+vlans:
     - vlan_id: 100
       vlan_name: guest_user
     - vlan_id: 110
