@@ -1,0 +1,8 @@
+
+    - vlan_id: 100
+      vlan_name: guest_user
+    - vlan_id: 110
+      vlan_name: wireless_user
+    - vlan_id: 120
+      vlan_name: voice_user
+

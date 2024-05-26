@@ -7,7 +7,7 @@ from netmiko import ConnectHandler
 from jinja2 import FileSystemLoader,Environment
 
 # load yaml file into data and convert it into python format
-file=open("config_data.yml","r")
+file=open("config_data_vlan.yml","r")
 data=yaml.safe_load(file)
 # print(data)
 
@@ -15,24 +15,21 @@ data=yaml.safe_load(file)
 
 template_loader = FileSystemLoader(searchpath=".")
 env = Environment(loader=template_loader)
-template = env.get_template("config_jinja.j2")
+template = env.get_template("config_jinja_vlan.j2")
 
 # Render the template with the data
 
 rendered_output = template.render(config_vlan=data) 
-
-# Pirnt rendered output
-
-# print(rendered_output)
+# print(rendered_output) # Print rendered output
 
 # opening new file and writting rendered output value in it. It will create new file and dislay the output on it.
-config_file=open("config_gen.data","w")
+config_file=open("config_gen_vlan.data","w")
 config_file.write(rendered_output)
 config_file.close()
 
 
 # # it will open existing file created above and read all lines from that file and print the output 
-# config_file=open("config_gen.data","r")
+# config_file=open("config_gen_vlan.data","r")
 # config_list=config_file.readlines()
 # # print(config_list)
 
@@ -80,7 +77,7 @@ for device in devices:
 # Example command: display the vlan & Netmiko different module uses
     # output = net_connect.send_command("sh vlan bri") # this command use to display the mention command output
     # output = net_connect.send_config_set(config_list) # config_set make config changes on switches with data mentioned in config_list file location
-    output = net_connect.send_config_from_file("config_gen.data") #config_from_file make config changes on switches with  data by passing direct file name itself
+    output = net_connect.send_config_from_file("config_gen_vlan.data") #config_from_file make config changes on switches with  data by passing direct file name itself
     # print("Vlan Details")
     print(output)
 
@@ -94,8 +91,9 @@ for device in devices:
 # print("Connected to the device.")
 
 # # Example command: display the running configuration
-# output = net_connect.send_command("sh ip int br")
-# print("Interface br")
+# # output = net_connect.send_command("sh vlan bri")
+# output = net_connect.send_config_from_file("config_gen_vlan.data") 
+# print("vlan details")
 # print(output)
 
 # # Disconnect from the device
