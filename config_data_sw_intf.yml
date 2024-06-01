@@ -1,9 +1,13 @@
 intfs:
-  - name: Ethernet0/0
-    desc: tag:data_vlan_con
+  # - name: Ethernet0/0
+  #   desc: tag:data_vlan_con
+  #   vlan: 1
   - name: Ethernet0/1
     desc: tag:data_vlan_con
+    vlan: 10
   - name: Ethernet0/2
     desc: tag:wlc_con
+    vlan: 20
   - name: Ethernet0/3
     desc: tag:voice_con
+    vlan: 30

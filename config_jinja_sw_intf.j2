@@ -1,5 +1,7 @@
 {%- for intf in config_data["intfs"] -%}
 interface {{ intf.name }}
 description {{ intf["desc"] }}
+switchport mode access
+switchport access vlan {{ intf.vlan}}
 {% endfor %}
 
