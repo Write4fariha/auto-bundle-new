@@ -9,8 +9,8 @@ from jinja2 import FileSystemLoader,Environment
 
 # load yaml file into data and convert it into python format
 
-# file=open("config_data_sw_intf.yml","r")
-# data=yaml.safe_load(file)
+file=open("config_data_sw_intf.yml","r")
+data=yaml.safe_load(file)
 # print(data)
 
 file=open("inv.yml","r")
@@ -24,7 +24,7 @@ env = Environment(loader=template_loader)
 template = env.get_template("config_jinja_sw_intf.j2")
 
 # Render the template with the data
-data = ""
+# data = ""
 rendered_output = template.render(config_data=data) 
 # print(rendered_output) # Print rendered output
 config_list=rendered_output.splitlines()
@@ -48,7 +48,8 @@ user_password = os.getenv('PASSWORD')
 # # Connect to multiple devices
 
 for device in devices:
-    print("Connected to the device",device["hostname"])
+    print("Connected to the device.")
+    print(device["hostname"])
     net_connect = ConnectHandler(device_type=device['device_type'],host=device['host'],username= user,password= user_password)
     
 # # Example command: display the vlan & Netmiko different module uses

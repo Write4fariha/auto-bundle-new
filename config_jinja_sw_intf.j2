@@ -1,11 +1,5 @@
-
-{%- for intf in range(0,4) -%}
-interface Ethernet0/{{ intf }}
-{% if intf in [0,1] %}
-description tag:data_vlan
-{% elif intf in [2] %}
-description tag:wlc
-{% elif intf in [3] %}
-description tag:voice
-{% endif %}
+{%- for intf in config_data["intfs"] -%}
+interface {{ intf.name }}
+description {{ intf["desc"] }}
 {% endfor %}
+
