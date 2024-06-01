@@ -12,7 +12,7 @@ data=yaml.safe_load(file)
 # print(data)
 
 file=open("inv.yml","r")
-device=yaml.safe_load(file)
+devices=yaml.safe_load(file)
 # print(device)
 
 # load jinja2 template from file 
@@ -76,37 +76,37 @@ config_list=rendered_output.splitlines()
 
 # # Connect to multiple devices
 
-# for device in devices:
-#     net_connect = ConnectHandler(device_type=device['device_type'],host=device['host'],username= 'netg',password= 'india')
-#     print("Connected to the device.")
+for device in devices:
+    net_connect = ConnectHandler(device_type=device['device_type'],host=device['host'],username= 'netg',password= 'india')
+    print("Connected to the device.")
 
-# # # Example command: display the vlan & Netmiko different module uses
+# # Example command: display the vlan & Netmiko different module uses
 
-# #     # output = net_connect.send_command("sh vlan bri") # this command use to display the mention command output
-#     output = net_connect.send_config_set(config_list) # config_set make config changes on switches with data mentioned in config_list file location
-# #     # output = net_connect.send_config_from_file("config_gen_vlan.data") #config_from_file make config changes on switches with  data by passing direct file name itself
-#     print("Configuration PUSHED")
-#     print(output)
+    output = net_connect.send_command("sh vlan bri") # this command use to display the mention command output
+    output = net_connect.send_config_set(config_list) # config_set make config changes on switches with data mentioned in config_list file location
+#     # output = net_connect.send_config_from_file("config_gen_vlan.data") #config_from_file make config changes on switches with  data by passing direct file name itself
+    print("Configuration PUSHED with keeping inventory data outside the code")
+    print(output)
 
-# # Disconnect from the device
-#     net_connect.disconnect()
-#     print("Disconnect the device.\n")
-
-
-# Connect to the device
-
-net_connect = ConnectHandler(device_type=device['device_type'],host=device['host'],username= 'netg',password= 'india')
-print("Connected to the device.")
-
-# Example command: display the running configuration
-
-output = net_connect.send_command("sh vlan bri")
-output = net_connect.send_config_set(config_list)
-# output = net_connect.send_config_from_file("config_gen_vlan.data") 
-print("Configuration PUSHED with keeping inventory data outside the code")
-print(output)
- 
 # Disconnect from the device
-net_connect.disconnect()
-print("Disconnect the device.")
+    net_connect.disconnect()
+    print("Disconnect the device.\n")
+
+
+# # Connect to the device
+
+# net_connect = ConnectHandler(device_type=device['device_type'],host=device['host'],username= 'netg',password= 'india')
+# print("Connected to the device.")
+
+# # Example command: display the running configuration
+
+# output = net_connect.send_command("sh vlan bri")
+# output = net_connect.send_config_set(config_list)
+# # output = net_connect.send_config_from_file("config_gen_vlan.data") 
+# print("Configuration PUSHED with keeping inventory data outside the code")
+# print(output)
+ 
+# # Disconnect from the device
+# net_connect.disconnect()
+# print("Disconnect the device.")
 
