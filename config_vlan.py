@@ -1,3 +1,4 @@
+import os
 import yaml
 from netmiko import ConnectHandler
 
@@ -74,10 +75,17 @@ config_list=rendered_output.splitlines()
 # # # }
 # # ]
 
+
+
+# Retrieve the value of an environment variable
+
+user = os.getenv('USERNAME')
+user_password = os.getenv('PASSWORD')
+
 # # Connect to multiple devices
 
 for device in devices:
-    net_connect = ConnectHandler(device_type=device['device_type'],host=device['host'],username= 'netg',password= 'india')
+    net_connect = ConnectHandler(device_type=device['device_type'],host=device['host'],username= user,password= user_password)
     print("Connected to the device.")
 
 # # Example command: display the vlan & Netmiko different module uses
