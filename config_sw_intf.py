@@ -48,13 +48,12 @@ user_password = os.getenv('PASSWORD')
 # # Connect to multiple devices
 
 for device in devices:
-    print("Connected to the device.")
-    print(device["hostname"])
+    print("Connected to the device",device["hostname"])
     net_connect = ConnectHandler(device_type=device['device_type'],host=device['host'],username= user,password= user_password)
-    
+
 # # Example command: display the vlan & Netmiko different module uses
 
-    output = net_connect.send_command("sh vlan bri") # this command use to display the mention command output
+    # output = net_connect.send_command("sh vlan bri") # this command use to display the mention command output
     output = net_connect.send_config_set(config_list) # config_set make config changes on switches with data mentioned in config_list file location
     # output = net_connect.send_config_from_file("config_gen_vlan.data") #config_from_file make config changes on switches with  data by passing direct file name itself
     print("Configuration PUSHED")
@@ -77,8 +76,7 @@ for device in devices:
 # # output = net_connect.send_config_from_file("config_gen_vlan.data") 
 # print("Configuration PUSHED with keeping inventory data outside the code")
 # print(output)
- 
+
 # # Disconnect from the device
 # net_connect.disconnect()
 # print("Disconnect the device.")
-
